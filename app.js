@@ -2,7 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import materialsRouter from "./Routes/materialsRouter.js";
+import materialsStoreRouter from "./Routes/materialsStoreRouter.js";
+import RawMaterialRouter from "./Routes/RawMaterial.js";
 
 dotenv.config();
 const app = express();
@@ -12,7 +13,8 @@ app.use(cors({ origin: "http://localhost:5173" }));
 
 //Routes
 
-app.use("/api/materialStore/", materialsRouter);
+app.use("/api/materialStore/", materialsStoreRouter);
+app.use("/api/rawMaterial", RawMaterialRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

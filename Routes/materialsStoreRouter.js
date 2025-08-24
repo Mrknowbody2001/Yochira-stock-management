@@ -5,10 +5,10 @@ import {
   updateMaterialStore,
 } from "../Controllers/MaterialStoreController.js";
 
-const materialsRouter = express.Router();
+const materialsStoreRouter = express.Router();
 
 //create a new material
-materialsRouter.post("/update", async (req, res, next) => {
+materialsStoreRouter.post("/update", async (req, res, next) => {
   try {
     const { items, referenceNo } = req.body;
 
@@ -24,9 +24,9 @@ materialsRouter.post("/update", async (req, res, next) => {
 });
 
 // Get current stock
-materialsRouter.get("/store", getMaterialStore);
+materialsStoreRouter.get("/store", getMaterialStore);
 
 // Get transaction log
-materialsRouter.get("/transactions", getMaterialTransactions);
+materialsStoreRouter.get("/transactions", getMaterialTransactions);
 
-export default materialsRouter;
+export default materialsStoreRouter;
